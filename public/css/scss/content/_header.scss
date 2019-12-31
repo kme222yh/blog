@@ -1,0 +1,105 @@
+header{
+    background-color: $main-color;
+    z-index: 998;
+    position: sticky;
+    top: 0;
+    @include desktop{position: inherit;}
+    h1{@include header-title;}
+    div{
+        position: relative;
+        @include outer-header;
+    }
+    box-shadow: 0 6px 5px 2px rgba(0,0,0,0.1);
+}
+
+
+
+
+#menu-trigger{
+    width: 40px;
+    height: 35px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    &, span{
+        display: inline-block;
+        transition: all .4s;
+        box-sizing: border-box;
+        @include desktop{display: none;}
+    }
+    span{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 4px;
+        &:nth-of-type(1){top: 0;}
+        &:nth-of-type(2){top: 16px;}
+        &:nth-of-type(3){bottom: 0;}
+    }
+    &.active{
+        span:nth-of-type(1){transform: translateY(16px) rotate(-45deg);}
+        span:nth-of-type(2){opacity: 0;}
+        span:nth-of-type(3){transform: translateY(-16px) rotate(45deg);}
+    }
+}
+
+
+
+
+#top-menu{
+    display: block;
+    background-color: $sub-color;
+    z-index: 999;
+    position: fixed;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: auto;       // ???????????????意味不
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: .4s;
+    &.active{transform: none;}
+    ul{
+        @include outer-nav;
+    }
+    a{
+        @include text-nav;
+        display: block;
+        min-width: 190px;
+    }
+    li{
+        margin-top: 30px;
+        &:first-child{margin-top: 0;}
+        border-bottom: 1px white solid;
+        padding: 0 10px;
+    }
+    @include desktop{
+        box-shadow: 0 6px 5px 2px rgba(0,0,0,0.1);
+        background-color: $main-color;
+        position: sticky;
+        transform: none;
+        height: auto;
+        ul{
+            @include flex;
+            justify-content: center;
+        }
+        a{
+            min-width: inherit;
+            padding: 0px 20px;
+            transition: .5s;
+        }
+        li{
+            margin-top: 0;
+            padding: 0;
+            border-bottom: none;
+            border-right: white 1px solid;
+            &:first-child{border-left: white 1px solid;}
+            &:hover a, &.here a{
+                color: c(1);
+            }
+        }
+    }
+}

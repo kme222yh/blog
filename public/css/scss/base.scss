@@ -1,0 +1,44 @@
+// 本番出力 :   node-sass --watch scss --output . --output-style compressed
+// 試験出力 :   node-sass --watch scss --output . --output-style expand
+
+
+@import "utility/other";
+@import "utility/outer";
+@import "utility/typography";
+
+@import "content/header";
+@import "content/main";
+@import "content/footer";
+
+@import "component/component";
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+.effect{
+    position: fixed;
+    z-index: 1000;
+    width: 0%;
+    height: 0%;
+    top: 0;
+    right: 0;
+    background-color: $main-color;
+    animation: feedout 1s ease-in-out;
+}
+@keyframes feedout{
+    from{opacity: 1; width: 100%; height: 100%;}
+    50%{opacity: 1; width: 100%; height: 100%;}
+    99%{opacity: 0; width: 100%; height: 100%;}
+    to{opacity: 0; width: 0%; height: 0%;}
+}

@@ -1,0 +1,56 @@
+footer{
+    background-color: $sub-sub-color;
+}
+
+
+footer>div{
+    @include outer-base;
+    position: relative;
+    background-color: inherit;
+}
+
+
+
+.sns{
+    color: white;
+    @include flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    a{
+        font-size: 80px;
+        color: white;
+        margin: 30px;
+    }
+    @include desktop{
+        flex-direction: row;
+        a:hover{animation: vib .3s;}
+    }
+}
+
+@keyframes vib{
+    from{}
+    50%{transform: rotateZ(5deg);}
+    to{transform: rotateZ(0deg);}
+}
+
+
+
+#top-button{
+    position: absolute;
+    top: -25px;
+    right: 50%;
+    transform: translateX(50%);
+    background-color: inherit;
+    border-radius: 100%;
+    font-size: 40px;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    color: white;
+    @include desktop{
+        transition: .5s;
+        &:hover{transform: translateX(50%) translateY(-7px);}
+    }
+}

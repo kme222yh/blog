@@ -1,0 +1,29 @@
+
+@mixin outer-base{
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    @include desktop{
+        padding: 50px 40px
+    }
+}
+
+
+@mixin outer-header{
+    @include outer-base;
+}
+
+
+@mixin outer-nav{
+    padding: 20px;
+}
+
+
+@mixin outer-main{
+    @include outer-base;
+    &.home{
+        max-width: none;
+        @include flex;
+        justify-content: space-around;
+    }
+}

@@ -21,6 +21,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\NavHiliteMiddleware::class,
         \App\Http\Middleware\TitleDecorator::class,
+        \App\Http\Middleware\ForceHttpProtocol::class,
     ];
 
     /**

@@ -57,6 +57,16 @@ main form{
 
 
 
+.error{
+    p{
+        @include text-error;
+        text-align: center;
+        margin: 10px 20px;
+    }
+}
+
+
+
 .works{
     margin-bottom: 80px;
     //max-width: 300px;

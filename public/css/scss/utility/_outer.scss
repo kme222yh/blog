@@ -26,4 +26,13 @@
         @include flex;
         justify-content: space-around;
     }
+    &.error{
+        max-width: none;
+        @include flex;
+        justify-content: center;
+        align-content: center;
+        @include mobile{
+            flex-direction: column;
+        }
+    }
 }

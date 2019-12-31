@@ -16,4 +16,5 @@ Route::get('/', 'MainController@home');
 Route::get('contact', 'MainController@contact');
 Route::post('contact', 'MailController@contact');
 
-Route::post('/deploy', 'DeployController');
+Route::get('deploy', function() {return redirect('/');});
+Route::post('deploy', 'DeployController');

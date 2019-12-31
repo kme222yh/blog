@@ -148,6 +148,17 @@ main > div {
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around; }
+  main > div.error {
+    max-width: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center; }
+    @media screen and (max-width: 481px) {
+      main > div.error {
+        flex-direction: column; } }
   @media screen and (min-width: 481px) {
     main > div {
       font-size: 19px;
@@ -212,6 +223,22 @@ main form button {
     main form button:hover {
       background-color: #4E737A;
       color: white; } }
+
+.error p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 40px;
+  line-height: 60px;
+  font-weight: normal;
+  text-align: center;
+  margin: 10px 20px; }
+  @media screen and (min-width: 481px) {
+    .error p {
+      font-size: 50px;
+      line-height: 70px; } }
+  @media screen and (min-width: 769px) {
+    .error p {
+      font-size: 60px;
+      line-height: 80px; } }
 
 .works {
   margin-bottom: 80px;

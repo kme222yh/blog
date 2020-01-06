@@ -16,8 +16,14 @@
     <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@16/dist/smooth-scroll.min.js"></script>
 
 
-    <link href="css/reset.css" rel="stylesheet" media="all">
-    <link href="css/base.css" rel="stylesheet" media="all">
+    @if(app('env')=='local')
+        <link href="{{ asset('css/reset.css') }}" rel="stylesheet" media="all">
+        <link href="{{ asset('css/base.css') }}" rel="stylesheet" media="all">
+    @endif
+    @if(app('env')=='production')
+        <link href="{{ secure_asset('css/reset.css') }}" rel="stylesheet" media="all">
+        <link href="{{ secure_asset('css/base.css') }}" rel="stylesheet" media="all">
+    @endif
 </head>
 <body>
 
@@ -70,5 +76,10 @@
 
 
 </body>
-    <script src="js/base.js"></script>
+@if(app('env')=='local')
+    <script src="{{ asset('js/base.js') }}"></script>
+@endif
+@if(app('env')=='production')
+    <script src="{{ secure_asset('js/base.js') }}"></script>
+@endif
 </html>

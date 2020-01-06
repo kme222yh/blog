@@ -9,20 +9,18 @@ class MainController extends Controller
 {
 
     public function home(){
-        $dirs = Storage::disk('public')->directories('works');
+        $dirs = Storage::disk('works')->directories();
         $params['works'] = array();
         foreach($dirs as $dir){
-            if(Storage::disk('public')->exists($dir.'/index.html')){
-                $project = str_replace('works/', '', $dir);
-                if(Storage::disk('public')->exists($dir.'/sample.png'))
-                    $img = 'storage/'.$dir.'/sample.png';
-                else
-                    $img = 'img/no_image.png';
-                array_push($params['works'], [
-                    'pv' => 'storage/'.$dir.'/index.html',
-                    'project' => $project,
-                    'img' => $img,
-                ]);
+            if(Storage::disk('works')->exists($dir.'/index.html')){
+                $param = [
+                    'pv' => Storage::disk('works')->url($dir.'/index.html'),
+                    'img' => Storage::disk('works')->url($dir.'/sample.png'),
+                    'project' => $dir,
+                ];
+                if(!Storage::disk('works')->exists($dir.'/sample.png'))
+                    $param['img'] = 'img/no_image.png';
+                array_push($params['works'], $param);
             }
         }
         return view('main.home', $params);

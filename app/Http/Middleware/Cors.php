@@ -20,7 +20,8 @@ class Cors
         $http_origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : "";
 
         // Log::debug("http_origin = " . $http_origin);
-        if ($http_origin == "https://portfolio.katuura.info" || $http_origin == "http://localhost:8080") {
+        if ($http_origin == "https://portfolio.katuura.info") {
+        // if ($http_origin == "http://localhost:8080") {
             $response
                 ->header("Access-Control-Allow-Origin" , $http_origin)
                 ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')

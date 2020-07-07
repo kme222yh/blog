@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// Route::
+// middleware(\App\Http\Middleware\VerifyCsrfToken::class)->
+// get('ppapi/issue_token', function(){
+//     return csrf_token();
+// });

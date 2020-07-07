@@ -18,3 +18,7 @@ Route::post('contact', 'MailController@contact');
 
 Route::get('deploy', function() {return redirect('/');});
 Route::post('deploy', 'DeployController');
+
+Route::get('ppapi/ppapi/issue_token', function(){
+    return csrf_token();
+});
